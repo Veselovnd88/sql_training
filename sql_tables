@@ -1,0 +1,47 @@
+CREATE TABLE IF NOT EXISTS `mydb`.`products` (
+  `idproducts` INT NOT NULL AUTO_INCREMENT,
+  `art_product` VARCHAR(45) NULL,
+  `name_product` VARCHAR(45) NULL,
+  `product_manufacturer` ENUM('ASH', 'ADZ', 'NKS') NULL,
+  PRIMARY KEY (`idproducts`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `mydb`.`order_products` (
+  `idorder_products` INT NOT NULL AUTO_INCREMENT,
+  `product` INT NULL,
+  `qnt` INT UNSIGNED NULL,
+  PRIMARY KEY (`idorder_products`),
+  CONSTRAINT `idproducts`
+    FOREIGN KEY (`idorder_products`)
+    REFERENCES `mydb`.`products` (`idproducts`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `mydb`.`Orders` (
+  `idOrders` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `order_name` VARCHAR(45) NOT NULL,
+  `order_products` INT NULL,
+  `order_comment` TEXT NULL,
+  `order_data` DATE NOT NULL,
+  `ready_data` DATE NULL,
+  `order_ver` ENUM('yes', 'no') NOT NULL,
+  `invoice` VARCHAR(45) NULL,
+  `sum` INT UNSIGNED NULL,
+  PRIMARY KEY (`idOrders`),
+  UNIQUE INDEX `order_name_UNIQUE` (`order_name` ASC) VISIBLE,
+  INDEX `idorder_products_idx` (`order_products` ASC) VISIBLE,
+  CONSTRAINT `idorder_products`
+    FOREIGN KEY (`order_products`)
+    REFERENCES `mydb`.`order_products` (`idorder_products`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+insert into products
+values (null,'801877','first','ADZ', null)
+;
+
+insert into products
+values (null,'802049','second','ADZ', null)
+;
