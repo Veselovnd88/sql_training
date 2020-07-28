@@ -7,10 +7,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`products` (
 ENGINE = InnoDB
 
 CREATE TABLE IF NOT EXISTS `mydb`.`order_products` (
-  `idorder_products` INT NOT NULL AUTO_INCREMENT,
+  `idorder_products` INT NULL AUTO_INCREMENT,
   `product` INT NULL,
   `qnt` INT UNSIGNED NULL,
-  PRIMARY KEY (`idorder_products`),
   CONSTRAINT `idproducts`
     FOREIGN KEY (`idorder_products`)
     REFERENCES `mydb`.`products` (`idproducts`)
