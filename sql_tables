@@ -38,9 +38,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Orders` (
 ENGINE = InnoDB
 
 insert into products
-values (null,'801877','first','ADZ')
+values (null,'801877','first','ADZ', null)
 ;
 
 insert into products
-values (null,'802049','second','ADZ')
+values (null,'802049','second','ADZ', null)
 ;
+
+insert into order_products
+values (1,1,15);
+
+insert into order_products
+values (1,2,30);
+
+
+insert into orders
+values(null, 'N2307',1,'новый заказ', '2020-07-23', null, 'yes', '20111', 10000);
