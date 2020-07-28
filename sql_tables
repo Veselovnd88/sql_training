@@ -38,9 +38,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Orders` (
 ENGINE = InnoDB
 
 insert into products
-values (null,'801877','first','ADZ', null)
+values (null,'801877','first','ADZ')
 ;
 
 insert into products
-values (null,'802049','second','ADZ', null)
+values (null,'802049','second','ADZ')
 ;
